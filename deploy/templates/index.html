@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>TITLE</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+.back{
+ background-image: url("{{ url_for('static', filename='image/stock1.jpg') }}");
+
+}
+.white{
+color:white;
+}
+.space{
+margin:10px 30px;
+padding:15px 10px;
+background: palegreen;
+width:500px
+}
+.gap{
+padding:10px 20px;
+}
+</style>
+  
+</head>
+
+<body class="back">
+ <div>
+	<div class="jumbotron">
+	<h1 style="text-align:center">STOCK PRICE CLASSIFICATION USING MACHINE LEARNING TECHNIQUE </h1>
+	
+	</div>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form class="form-group" action="{{ url_for('predict')}}"method="post">
+    		
+		<div class="row">
+		<div class="gap col-md-6 ">
+		<label class="white" for="">Open</label>
+		<input type="number" class="space form-control" step="0.01" name="Open" placeholder="Open" required="required" /><br>
+
+		<label class="white"  for="">High</label>
+		<input type="number" class="space form-control" step="0.01" name="High" placeholder="High" required="required" /><br>
+
+		<label class="white"  for="">Low</label>
+		<input type="number" class="space form-control" step="0.01" name="Low" placeholder="Low" required="required" /><br>
+
+		<label class="white" for="">Close</label>
+		<input type="number" class="space form-control" step="0.01" name="Close" placeholder="Close" required="required" /><br>
+
+		<label class="white"  for="">Volume</label>
+		<input type="number" class="space form-control" step="0.01" name="Volume" placeholder="Volume" required="required" /><br>
+
+		<label class="white"  for="">Adj_Close</label>
+		<input type="number" class="space form-control" step="0.01" name="Adj_close" placeholder="Adj_close" required="required" /><br>
+	
+		</div>
+
+		
+
+		<div class="row">
+		<div class="gap col-md-6 ">
+		<label class="white" for="">Subjectivity</label>
+		<input type="number" class="space form-control" step="0.01" name="Subjectivity" placeholder="Subjectivity" required="required" /><br>
+
+		<label class="white"  for="">Objectivity</label>
+		<input type="number" class="space form-control" step="0.01" name="Objectivity" placeholder="Objectivity" required="required" /><br>
+
+		<label class="white"  for="">Positive</label>
+		<input type="number" class="space form-control" step="0.01" name="Positive" placeholder="Positive" required="required" /><br>
+
+		<label class="white" for="">Neutral</label>
+		<input type="number" class="space form-control" step="0.01" name="Neutral" placeholder="Neutral" required="required" /><br>
+
+		<label class="white"  for="">Negative</label>
+		<input type="number" class="space form-control" step="0.01" name="Negative" placeholder="Negative" required="required" /><br>
+
+		
+	
+		</div>
+
+
+
+
+</div>
+
+<div style="padding:2% 35%">
+  <button type="submit" class="btn btn-success btn-block" style="width:350px;padding:20px">Predict</button>		
+</div>
+      
+    </form>
+
+   <br>
+   <br>
+<div  style="background:skyblue;padding:2% 40%">
+   {{ prediction_text }}
+</div>
+ </div>
+
+
+</body>
+</html>
