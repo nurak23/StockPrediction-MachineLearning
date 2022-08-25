@@ -31,7 +31,7 @@ pip install flask
 
 Naviagte to deploy folder.
 
--Run flask_deploy.
+- Run flask_deploy.
 
 Open the local host (http://localhost:7000/).
 
